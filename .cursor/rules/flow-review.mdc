@@ -1,0 +1,16 @@
+---
+description: Record-triggered and screen Flow review — bulk DML, recursion, fault paths
+globs:
+  - "**/*.flow-meta.xml"
+  - "**/*.orchestration-meta.xml"
+alwaysApply: false
+---
+
+# Flow review
+
+- No Get/Create/Update/Delete inside loops on bulk-invoked record-triggered flows. DML collections once.
+- Before-save flows: field updates only. No other-object DML, callouts, or email.
+- Entry conditions must be selective. After-save updates to the same record need a recursion guard.
+- Every DML, Get Records, and Action needs a Fault path unless documented otherwise.
+- Prefer user context. System context bypasses sharing and must be justified.
+- HTTP callouts belong behind Named Credentials or invocable Apex.

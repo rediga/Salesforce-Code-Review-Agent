@@ -1,0 +1,19 @@
+---
+description: Apex and trigger review standards — bulkification, sharing, CRUD/FLS, injection
+globs:
+  - "**/*.cls"
+  - "**/*.trigger"
+  - "**/*.apex"
+alwaysApply: false
+---
+
+# Apex review
+
+- No SOQL, SOSL, or DML in loops. Collect, query once, DML once.
+- Default `with sharing` or `inherited sharing`. `without sharing` needs a reason and still needs CRUD/FLS on user-facing paths.
+- Bind SOQL variables. Do not concatenate request input into `Database.query`.
+- One trigger per object; logic lives in a handler. Triggers must be bulk-safe.
+- No hardcoded record IDs or secrets. Callouts use Named Credentials.
+- Catch blocks must log or convert errors. Empty `catch` is a defect.
+- Prefer Queueable over `@future` when chaining or large payloads are needed.
+- `@AuraEnabled(cacheable=true)` methods must not perform DML.

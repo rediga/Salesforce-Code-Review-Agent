@@ -1,0 +1,14 @@
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+*.iml
+.env
+.env.*
+!.env.example
+node_modules/
+.sfdx/
+.sf/
+.localdevserver/
+coverage/

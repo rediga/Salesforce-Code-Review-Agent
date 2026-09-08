@@ -1,0 +1,20 @@
+---
+description: Salesforce security review for credentials, CRUD/FLS, guest users, and permission metadata
+globs:
+  - "**/*.cls"
+  - "**/*.trigger"
+  - "**/lwc/**/*.js"
+  - "**/*permissionset*"
+  - "**/*.namedCredential-meta.xml"
+  - "**/*.externalCredential-meta.xml"
+alwaysApply: false
+---
+
+# Salesforce security
+
+- No tokens, passwords, or private keys in source. Callouts use Named or External Credentials.
+- User-facing reads/writes must enforce CRUD and FLS (`USER_MODE`, `stripInaccessible`, or `SECURITY_ENFORCED`).
+- Flag `without sharing` on PII / Case / Account queries without a documented reason.
+- Guest and Experience Cloud access must be least privilege.
+- New permission sets should not grant `Modify All Data`, `View All Data`, `Author Apex`, or `Manage Users` unless that is the persona.
+- Do not update `User.Title`, `ManagerId`, `Name`, or org-specific role fields as a "fix".

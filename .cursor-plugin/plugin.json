@@ -1,0 +1,24 @@
+{
+  "name": "salesforce-code-review",
+  "version": "1.0.0",
+  "description": "Salesforce code review agent for Apex, LWC, Flows, and metadata security.",
+  "author": {
+    "name": "rediga"
+  },
+  "homepage": "https://github.com/rediga/Salesforce-Code-Review-Agent",
+  "repository": "https://github.com/rediga/Salesforce-Code-Review-Agent",
+  "license": "MIT",
+  "keywords": [
+    "salesforce",
+    "apex",
+    "lwc",
+    "flow",
+    "code-review",
+    "security",
+    "sfdx"
+  ],
+  "skills": ".cursor/skills",
+  "agents": ".cursor/agents",
+  "rules": ".cursor/rules",
+  "commands": ".cursor/commands"
+}

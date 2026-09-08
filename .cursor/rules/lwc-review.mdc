@@ -1,0 +1,17 @@
+---
+description: Lightning Web Component and Aura review — XSS, wire/Apex, a11y
+globs:
+  - "**/lwc/**"
+  - "**/aura/**"
+alwaysApply: false
+---
+
+# LWC review
+
+- No untrusted `innerHTML` or `lwc:dom="manual"` without sanitization.
+- Do not store secrets in JS or browser storage.
+- UI permission checks do not replace Apex CRUD/FLS.
+- `cacheable=true` / `@wire` paths must be read-only.
+- Handle Apex and `@wire` errors. Do not fail silently.
+- Do not mutate `@api` objects; copy and emit events.
+- Prefer LWC over new Aura. Keep business rules that enforce security in Apex.
