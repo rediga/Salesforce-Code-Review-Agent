@@ -14,6 +14,7 @@
 - Default to `with sharing` (or inherited sharing on utility classes).
 - `without sharing` requires a comment explaining why, plus explicit user-mode enforcement at the entry point.
 - User-facing CRUD must use `WITH USER_MODE`, `Security.stripInaccessible`, or equivalent. `WITH SECURITY_ENFORCED` is acceptable for simple reads; it throws rather than stripping.
+- Prefer `Database` DML/query overloads that take `AccessLevel.USER_MODE` (or `AccessLevel.SYSTEM_MODE` only when system mode is intentional and documented).
 - System-mode service code that bypasses sharing must not expose stripped-inaccessible fields back to Lightning/LWC.
 
 ## Injection and dynamic code
@@ -32,9 +33,11 @@
 ## API and async
 
 - Prefer Queueable over `@future` when chaining or large payloads are needed.
+- Queueable chains must stay within platform depth limits; Batch Apex should own large fan-out work.
 - `@AuraEnabled(cacheable=true)` methods must be read-only (no DML).
 - REST/SOAP classes: enforce auth, CRUD/FLS, and input validation. Return generic errors to clients.
 - Named Credentials / External Credentials for callouts. No endpoint + secret in code.
+- Platform Events and Change Data Capture subscribers must be bulk-safe and idempotent.
 
 ## Maintainability
 

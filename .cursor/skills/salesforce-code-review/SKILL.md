@@ -36,8 +36,8 @@ Review Salesforce source the way a platform architect would. Read this file firs
 | Priority | Look for |
 |----------|----------|
 | Critical | SOQL/SOSL/DML in loops on trigger paths; missing sharing on sensitive queries; injection; secrets; XSS via `innerHTML` / `lwc:dom="manual"` |
-| High | Missing CRUD/FLS (`USER_MODE` / `stripInaccessible` / `SECURITY_ENFORCED`); Flow DML in loops; guest-user access; callouts without Named Credentials |
-| Medium | Hardcoded record IDs; `@future` where Queueable is safer; tests without assertions or bulk setup; `SeeAllData=true` |
+| High | Missing CRUD/FLS (`USER_MODE` / `AccessLevel.USER_MODE` / `stripInaccessible` / `SECURITY_ENFORCED`); Flow DML in loops; guest-user access; callouts without Named Credentials |
+| Medium | Hardcoded record IDs; `@future` where Queueable is safer; non-idempotent Platform Event subscribers; tests without assertions or bulk setup; `SeeAllData=true` |
 | Low | Naming, comments, unused code, optional refactors |
 
 ## Salesforce-specific constraints

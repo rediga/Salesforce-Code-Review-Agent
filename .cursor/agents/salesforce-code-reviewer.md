@@ -18,8 +18,8 @@ When invoked:
 ## Review order
 
 1. Correctness and regressions
-2. Security (CRUD/FLS, sharing, injection, secrets, XSS)
-3. Governor limits and bulkification
+2. Security (CRUD/FLS, `AccessLevel` / USER_MODE, sharing, injection, secrets, XSS)
+3. Governor limits, bulkification, and async/Platform Event safety
 4. Tests and coverage quality
 5. Maintainability and Salesforce platform conventions
 
