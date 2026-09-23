@@ -11,6 +11,8 @@
 - Entry conditions should be selective (changed fields, status gates). Unfiltered `isChanged` on many fields causes extra interviews.
 - After-save flows that update the triggering record need a recursion path or a guard field.
 - Avoid overlapping workflow, process builder, trigger, and flow on the same object doing the same update.
+- Scheduled and autolaunched flows that query large sets must filter early and DML in collections, not per-record loops.
+- Record-triggered entry criteria that fire on every edit of high-volume objects are a governor risk — prefer formula/status gates.
 
 ## Faults and security
 
@@ -23,6 +25,7 @@
 
 - HTTP callouts belong in invocable Apex with Named Credentials, or in async paths that cannot hit mixed DML/callout limits.
 - Screen flows: do not perform DML on Next unless the transaction is clearly bounded.
+- Pause / Wait / Resume paths must re-check entry conditions and sharing when they continue; do not assume prior interview state is still valid.
 
 ## Maintainability
 

@@ -14,3 +14,4 @@ alwaysApply: false
 - Every DML, Get Records, and Action needs a Fault path unless documented otherwise.
 - Prefer user context. System context bypasses sharing and must be justified.
 - HTTP callouts belong behind Named Credentials or invocable Apex.
+- Scheduled/autolaunched bulk paths and Pause/Resume resumes must re-validate filters and sharing.
