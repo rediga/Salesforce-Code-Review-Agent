@@ -16,5 +16,6 @@ alwaysApply: false
 - User-facing reads/writes must enforce CRUD and FLS (`USER_MODE`, `stripInaccessible`, or `SECURITY_ENFORCED`).
 - Flag `without sharing` on PII / Case / Account queries without a documented reason.
 - Guest and Experience Cloud access must be least privilege.
+- Flag Connected Apps / External Client Apps with overly broad OAuth scopes or weak refresh-token policies.
 - New permission sets should not grant `Modify All Data`, `View All Data`, `Author Apex`, or `Manage Users` unless that is the persona.
 - Do not update `User.Title`, `ManagerId`, `Name`, or org-specific role fields as a "fix".

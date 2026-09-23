@@ -23,6 +23,8 @@
 - New permission sets should be least-privilege. Flag `Modify All Data`, `View All Data`, `Author Apex`, `Manage Users`, `Password Never Expires` on unexpected personas.
 - Guest / Experience Cloud profiles: no object access beyond the published site contract. No Apex that trusts the guest user without captcha/rate limits where relevant.
 - Do not grant CRUD on `User` beyond what the persona needs.
+- Connected Apps and External Client Apps: flag broad OAuth scopes, refresh-token policies, and IP relaxation that do not match the integration persona.
+- Custom settings / custom metadata that store endpoint URLs are fine; secrets still belong in Named/External Credentials or Protected Custom Settings with controlled access.
 
 ## Insecure Apex patterns
 
@@ -30,6 +32,7 @@
 - `Test.isRunningTest()` branches that skip security checks.
 - Crypto with hardcoded IVs/keys. Use Platform Encryption / Protect / Named Credentials instead.
 - Debug logs that print PII, tokens, or full request bodies.
+- Deserializing untrusted JSON into Apex types that are later used for dynamic SOQL, DML field maps, or `Type.forName`.
 
 ## Auth Z on User records
 
