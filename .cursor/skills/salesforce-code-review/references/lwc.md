@@ -13,6 +13,8 @@
 - Prefer Lightning Data Service (`uiRecordApi`) for simple record CRUD; use Apex for complex, sharing-sensitive operations.
 - Validate and reduce payload size. Do not return entire objects to the client when a DTO will do.
 - Handle `error` from `@wire` and imperative Apex. Show a toast; do not fail silently.
+- GraphQL/`lightning/uiGraphQLApi` queries must request only needed fields and still rely on Apex/LDS sharing — UI field selection is not FLS enforcement.
+- Lightning Message Service payloads must not carry secrets or broad PII across namespaces.
 
 ## LWC structure
 
@@ -26,6 +28,7 @@
 - Avoid rendering huge unvirtualized lists. Use `lightning-datatable` or pagination.
 - Debounce expensive `@wire` refreshes and input handlers.
 - Do not import the entire `lightning/*` surface when a base component exists.
+- Prefer `lightning-modal` / base components over custom overlays that break focus traps.
 
 ## Tests and a11y
 

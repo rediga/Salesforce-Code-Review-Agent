@@ -15,3 +15,4 @@ alwaysApply: false
 - Handle Apex and `@wire` errors. Do not fail silently.
 - Do not mutate `@api` objects; copy and emit events.
 - Prefer LWC over new Aura. Keep business rules that enforce security in Apex.
+- GraphQL and LMS must not replace Apex CRUD/FLS or carry secrets/PII in client messages.
