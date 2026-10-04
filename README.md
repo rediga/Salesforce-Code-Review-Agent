@@ -166,14 +166,26 @@ The skill will use the CLI when it is available and will skip it when it is not.
 
 ## Update
 
-From this clone:
+From this clone, pull the latest changes and re-run the installer you used originally.
 
-```powershell
+Windows (PowerShell):
+
+```
 git pull
 .\scripts\install.ps1 -Target "C:\path\to\your-sfdx-project"
 ```
 
-For a user plugin or personal skills install, re-run the same `-Scope` you used originally, then reload Cursor.
+macOS / Linux:
+
+```
+git pull
+./scripts/install.sh Project /path/to/your-sfdx-project
+```
+
+For a user plugin or personal skills install, re-run the same scope you used originally, then reload Cursor:
+
+- Windows: `.\scripts\install.ps1 -Scope UserPlugin` or `-Scope UserSkills`
+- macOS / Linux: `./scripts/install.sh UserPlugin` or `./scripts/install.sh UserSkills`
 
 ## Customize
 
