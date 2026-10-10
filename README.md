@@ -205,3 +205,16 @@ BUGBOT.md                           Agent Review / Bugbot guidance
 ## License
 
 MIT. See [LICENSE](LICENSE).
+## Contributing
+
+Contributions are welcome.
+
+### Quick workflow
+
+1. Fork this repository on GitHub.
+2. Create a new branch for your changes.
+3. Make your changes and test them.
+4. Commit and push your changes.
+5. Open a Pull Request against the `main` branch.
+
+For larger changes, please explain the problem being solved and include relevant testing steps in the Pull Request description.
